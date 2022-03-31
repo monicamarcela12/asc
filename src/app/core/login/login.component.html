@@ -17,8 +17,7 @@
             <input type="email" formControlName="email" id="email" placeholder="E-MAIL" class="form-control">
           </div>
           <div class="col-12 form-group d-flex m-0" >
-            <input [type]="hide ? 'password' : 'text'" id="password"  placeholder="SENHA" class="form-control" style="border-radius: 0.5rem
-             0 0 0.5rem !important;" formControlName="senha" id="senha" >
+            <input [type]="hide ? 'password' : 'text'" id="password"  placeholder="SENHA" class="form-control" formControlName="senha" id="senha" >
             <div class="input-group-append">
             <span class="input-group-text" (click)="hide = !hide">
               <i class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</i>
