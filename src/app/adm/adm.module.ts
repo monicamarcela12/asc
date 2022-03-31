@@ -20,7 +20,6 @@ import { FamilyListComponent } from './family/family-list/family-list.component'
 import { PathologyFormComponent } from './pathology/pathology-form/pathology-form.component';
 import { PathologyListComponent } from './pathology/pathology-list/pathology-list.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from 'mat-input';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
@@ -76,9 +75,7 @@ const editorConfig= {
   imports: [
     CommonModule,
     AdmRoutingModule,
-    MatInputModule,
     FormsModule,
-    MatInputModule,
     StarRatingModule,
     BarRatingModule,
     SharedModule,

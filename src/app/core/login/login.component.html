@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class=" backg container-fluid d-flex justify-content-center pt-5">
-  <form class="login form-row">
+  <form class="login form-row mb-5" [formGroup]="loginForm" (ngSubmit)="submit()">
     
     <div class="card m-1 container-fluid" style="width: 100rem;">
       <div class="card-body">
@@ -14,11 +14,11 @@
         </div>
         <div class="pt-1">
           <div class="col-12 form-group pt-2">
-            <input type="email" id="email" placeholder="E-MAIL" class="form-control">
+            <input type="email" formControlName="email" id="email" placeholder="E-MAIL" class="form-control">
           </div>
           <div class="col-12 form-group d-flex m-0" >
             <input [type]="hide ? 'password' : 'text'" id="password"  placeholder="SENHA" class="form-control" style="border-radius: 0.5rem
-             0 0 0.5rem !important;">
+             0 0 0.5rem !important;" formControlName="senha" id="senha" >
             <div class="input-group-append">
             <span class="input-group-text" (click)="hide = !hide">
               <i class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</i>
@@ -26,10 +26,10 @@
             </div>         
          </div>
           <div class="col-12 form-group button pt-5">
-          <button type="submit" [routerLink]="['/admin']" class="btn btn-success btn-sm btn-block p-2">Entrar</button>
+          <button type="submit" (click)="submit()" class="btn btn-success btn-sm btn-block p-2">Entrar</button>
           </div>
           <div class="col-12">
-            <a class="conectar font-weight-bold" routerLink="/recuperar-senha">
+            <a class="conectar font-weight-bold" (click)="loginWithFacebook()">
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_8_1647)">
                 <path d="M15.2825 17C15.6787 17 16 16.6788 16 16.2825V4.71749C16 4.32119 15.6787 4 15.2825 4H3.71749C3.32114 4 3 4.32119 3 4.71749V16.2825C3 16.6788 3.32114 17 3.71749 17H15.2825Z" fill="#395185"/>
@@ -46,7 +46,7 @@
             </a>
           </div>
           <div class="col-12">
-            <a class="esquece font-weight-bold" routerLink="/recuperar-senha">Não sou cadastro</a>
+            <a class="esquece font-weight-bold" routerLink="/registration">Não sou cadastro</a>
           </div>
         </div>
       </div>

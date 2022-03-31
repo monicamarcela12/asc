@@ -23,13 +23,13 @@ export class LoginService {
   ) {}
 
   isLoggedIn(): boolean {
-    if(this.localstorageService.getLocalStorage("user_casa_cafeicultor_web")){
+    if(this.localstorageService.getLocalStorage("user_asc_web")){
       return true
     }
   }
 
   login(body): Observable<any>{
-    return this.http.post<UserLoggedin>(`${API}/sessions`, body)
+    return this.http.post<UserLoggedin>(`${API}/auth`, body)
         .pipe(tap(user =>{
           this._user = user
           this.initUser(user)
@@ -37,14 +37,14 @@ export class LoginService {
   }
 
   logout() {
-    this.localstorageService.removeLocalStorage("user_casa_cafeicultor_web")
+    this.localstorageService.removeLocalStorage("user_asc_web")
     delete this._user;
     this.router.navigate(['/'])
   }
 
   private initUser(response) {
     this._user = response;
-    this.localstorageService.setLocalStorage("user_casa_cafeicultor_web", this._user)
+    this.localstorageService.setLocalStorage("user_asc_web", this._user)
   }
 
   getRealStates(): Observable<any>{
@@ -60,8 +60,8 @@ export class LoginService {
   }
 
   get user() {
-    if (this._user === undefined && this.localstorageService.getLocalStorage("user_casa_cafeicultor_web") != null) {
-      this._user = this.localstorageService.getLocalStorage("user_casa_cafeicultor_web");
+    if (this._user === undefined && this.localstorageService.getLocalStorage("user_asc_web") != null) {
+      this._user = this.localstorageService.getLocalStorage("user_asc_web");
     }
     return this._user;
   }

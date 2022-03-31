@@ -9,6 +9,7 @@ import { StarRatingModule } from 'angular-rating-star';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppRoutingModule,
     CoreModule.forRoot(),
     NgxSpinnerModule,
+    FacebookModule.forRoot(),
     StarRatingModule,
     BarRatingModule,
     BrowserAnimationsModule,
