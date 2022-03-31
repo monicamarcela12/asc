@@ -36,6 +36,11 @@ export class LoginService {
         }))
   }
 
+  registro(body): Observable<any>{
+    return this.http.post(`${API}/usuario/cadastrar`, body)
+  }
+
+
   logout() {
     this.localstorageService.removeLocalStorage("user_asc_web")
     delete this._user;

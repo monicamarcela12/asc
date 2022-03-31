@@ -27,26 +27,27 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userName: [null],
-      password: [null]
+      nome: [null],
+      email: [null],
+      telefone: [null],
+      senha: [null]
     });
   }
 
   submit(){
-    /*if(this.loginForm.valid){
+    if(this.loginForm.valid){
       this.spinner.show()
-
-      this.loginService.login(this.loginForm.value).subscribe(response =>{
-        this.spinner.hide()
-        this.router.navigate(['/admin'])
+      this.loginService.registro(this.loginForm.value).subscribe(response => {
+        this.spinner.hide();
+        this.router.navigate(['../login']);
       }, error=>{
-        this.spinner.hide()
-        this.toastr.error(`${error.error.error}`)
+        this.spinner.hide();
+        this.toastr.error(`${error.msg}`)
         this.loginForm.reset()
       })
     }else{
       this.toastr.error('Preencha os campos inválidos')
-    }*/
+    }
   }
 
   get email(){
