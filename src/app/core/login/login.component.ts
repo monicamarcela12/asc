@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { LoginService } from './../services/login.service';
 import {Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { patterns } from 'src/app/shared/helpers/patterns.helper';
@@ -13,9 +13,13 @@ import { patterns } from 'src/app/shared/helpers/patterns.helper';
 })
 export class LoginComponent implements OnInit {
   
-  hide = true;
-  loginForm: FormGroup;
-  value
+  public hide = true;
+  public loginForm: FormGroup;
+  public value
+  public submitted:  boolean = false;
+  public email:      any = AbstractControl;
+  public senha:      any = AbstractControl;
+
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -28,32 +32,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['adm@wipstore.com', Validators.compose([Validators.required, Validators.pattern(patterns.email)])],
-      senha: ["w909121@#71adm", [Validators.required]],
+      email: [null, Validators.compose([Validators.required, Validators.pattern(patterns.email)])],
+      senha: [null, [Validators.required]],
     });
   }
 
   submit(){
+    this.submitted = true;
     if(this.loginForm.valid){
       this.spinner.show()
       this.loginService.login(this.loginForm.value).subscribe(response => {
         this.spinner.hide();
-        this.router.navigate(['/patient-list']);
+        this.router.navigate(['/admin']);
       }, error=>{
         this.spinner.hide();
-        this.toastr.error(`${error.msg}`)
+        this.toastr.error(`Senha ou Login incorreto`)
         this.loginForm.reset()
       })
     }else{
       this.toastr.error('Preencha os campos inválidos')
     }
-  }
-
-  get email(){
-    return this.loginForm.get('email')
-  }
-
-  get password(){
-    return this.loginForm.get('password')
   }
 }

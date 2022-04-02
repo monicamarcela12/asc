@@ -9,14 +9,17 @@
 h4 {
   font-weight: 700;
 }
+
 .login {
   max-width: 400px;
   background: #fff;
 }
+
 .col-12 {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
+
 .d-flex {
   display: flex !important;
 }
@@ -57,18 +60,6 @@ a {
   background-color: #395185;
   border: 3px solid #395185 !important;
   color: #fff !important;
-}
-
-.term {
-  text-align: center;
-  display: flex; 
-  justify-content: space-between; 
-  bottom: 0; 
-  position: absolute; 
-
-  a{
-    font-size: X-small !important;
-  }
 }
 
 @media screen and (max-width: 1380px){
@@ -112,11 +103,4 @@ a {
   border: 1px solid transparent !important;
   border-bottom: 1px solid #313133 !important;
   border-radius: 0 !important;
-}
-
-.btn-info {
-  color: #FFF;
-  font-weight: 600;
-  background-color: #F5821F;
-  border-color: #F5821F;
 }

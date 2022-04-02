@@ -12,131 +12,135 @@
       <div class="col-12">   
         <div class="card">
           <div class="card-body">
-            <div class="col-12">
+            <div class="col-12" [formGroup]="formGroup">
               <div class="row row-area">
                 <div class="col-12 form-group">
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Nome" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  id="nome" formControlName="nome" class="form-control" placeholder="Nome" style="border-right: 1px solid transparent !important;" 
+                      [ngClass]="{'is-invalid': checkInvalidField('nome')}">
                   </div>
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-3 form-group">
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="SUS" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" placeholder="SUS" style="border-right: 1px solid transparent !important;" id="sus" formControlName="sus"
+                    [ngClass]="{'is-invalid': checkInvalidField('sus')}">
                   </div>
                 </div>
                 <div class="col-3 form-group">
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="CPF" mask="000.000.000-00" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="number"  class="form-control" placeholder="CPF" mask="000.000.000-00" style="border-right: 1px solid transparent !important;" id="cpf" formControlName="cpf"
+                    [ngClass]="{'is-invalid': checkInvalidField('cpf')}">
                   </div>
                 </div>
                 <div class="col-6 form-group">
                   <div class="input-group">
-                    <input type="date"  class="form-control" placeholder="Telefone" mask="(00)00000-0000" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="date"  class="form-control" placeholder="Telefone" mask="(00)00000-0000" style="border-right: 1px solid transparent !important;" id="telefone" formControlName="telefone"
+                    [ngClass]="{'is-invalid': checkInvalidField('telefone')}">
                   </div>
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-5 form-group">
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Endereço" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" placeholder="Endereço" style="border-right: 1px solid transparent !important;" id="endereco" formControlName="endereco"
+                    [ngClass]="{'is-invalid': checkInvalidField('endereco')}">
                   </div>
                 </div>
                 <div class="col-1 form-group">
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" id="numero" formControlName="numero"
+                    [ngClass]="{'is-invalid': checkInvalidField('numero')}">
                   </div>
                 </div>
                 <div class="col-6 form-group">
                   <div class="input-group">
-                    <input type="date"  class="form-control" placeholder="Bairro" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="date"  class="form-control" placeholder="Bairro" style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
+                    [ngClass]="{'is-invalid': checkInvalidField('bairro')}">
                   </div>
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="patologia" formControlName="patologia" [ngClass]="{'is-invalid': checkInvalidField('patologia')}">
                     <option selected>Tem alguma patologia?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="visita" formControlName="visita" [ngClass]="{'is-invalid': checkInvalidField('visita')}">
                     <option selected>Necessidade Visita do medico?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="remedio" formControlName="remedio" [ngClass]="{'is-invalid': checkInvalidField('remedio')}">
                     <option selected>Toma algum remedio controlado?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="depende" formControlName="depende" [ngClass]="{'is-invalid': checkInvalidField('depende')}">
                     <option selected> Tem algum depende?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-3 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="fuma" formControlName="fuma" [ngClass]="{'is-invalid': checkInvalidField('fuma')}">
                     <option selected>Fuma?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-3 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="bebida" formControlName="bebida" [ngClass]="{'is-invalid': checkInvalidField('bebida')}">
                     <option selected> Bebida?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="idioso" formControlName="idioso" [ngClass]="{'is-invalid': checkInvalidField('idioso')}">
                     <option selected> Idioso?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-6 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="cancer" formControlName="cancer" [ngClass]="{'is-invalid': checkInvalidField('cancer')}">
                     <option selected>Cancer?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-3 form-group">
-                  <select class="form-control field-height" id="inputGroupSelect02">
+                  <select class="form-control field-height" id="filho" formControlName="filho" [ngClass]="{'is-invalid': checkInvalidField('filho')}">
                     <option selected> Filhos?</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
                   </select>                
                 </div>
                 <div class="col-3 form-group">
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" id="numerofilho" formControlName="numerofilho" [ngClass]="{'is-invalid': checkInvalidField('numerofilho')}">
                   </div>          
                 </div>
                 <div class="justify-content-end col-12" style="display: flex;">
                   <div>
-                    <button type="button" class="btn btn-success mr-1">
+                    <button type="button" class="btn btn-success mr-1" (click)="submit()">
                        Salvar
                     </button>
-                    <button type="button" class="btn btn-primary" routerLink="../patient-list" >
-                      Voltar
-                   </button>
                   </div>
                 </div>
               </div>

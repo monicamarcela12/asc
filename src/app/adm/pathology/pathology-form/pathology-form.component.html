@@ -12,22 +12,20 @@
       <div class="col-12">   
         <div class="card">
           <div class="card-body">
-            <div class="col-12">
+            <div class="col-12" [formGroup]="formGroup">
               <div class="row row-area">
                 <div class="col-12 form-group">
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Nome da Patologia" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" id="nome" formControlName="nome" placeholder="Nome da Patologia" style="border-right: 1px solid transparent !important;" 
+                    [ngClass]="{'is-invalid': checkInvalidField('nome')}">
                   </div>
                 </div>
               </div>
               <div class="justify-content-end col-12" style="display: flex;">
                 <div>
-                  <button type="button" class="btn btn-success mr-1">
+                  <button type="submit" (click)="submit()" class="btn btn-success mr-1">
                      Salvar
                   </button>
-                  <button type="button" class="btn btn-primary" routerLink="../pathology-list" >
-                    Voltar
-                 </button>
                 </div>
               </div>
             </div>

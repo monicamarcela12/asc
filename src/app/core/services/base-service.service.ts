@@ -25,7 +25,7 @@ export abstract class BaseService {
     return this.http.post(`${API}/${this.urlService()}`, data)
   }
 
-  public put(id: number, data): Observable<any>{
+  public put(id, data): Observable<any>{
     return this.http.put(`${API}/${this.urlService()}/${id}`, data)
   }
 
@@ -33,12 +33,12 @@ export abstract class BaseService {
     return this.http.patch(`${API}/${this.urlService()}/${id}`, data)
   }
 
-  public delete(id:number): Observable<any>{
+  public delete(id): Observable<any>{
     return this.http.delete(`${API}/${this.urlService()}/${id}`)
   }
 
   public search(url:string, filter?: any): Observable<any> {
-    return this.http.get(`${API}/${url}`, { params: filter });
+    return this.http.get(`${API}/${this.urlService()}`, { params: filter });
   }
 
 }

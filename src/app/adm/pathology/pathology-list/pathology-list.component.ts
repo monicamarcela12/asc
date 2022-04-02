@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {PaginationInstance} from "ngx-pagination";
 import { ToastrService } from 'ngx-toastr';
-import { UsersService } from 'src/app/core/services/users.service';
+import { PathologyService } from 'src/app/core/services/pathology.service';
 
 @Component({
   selector: 'app-pathology-list',
@@ -9,38 +10,76 @@ import { UsersService } from 'src/app/core/services/users.service';
   styleUrls: ['./pathology-list.component.scss']
 })
 export class PathologyListComponent implements OnInit {
-  users
-  total_users:number
-  name:string = ''
-  dataSet = 10;
+
+  public patologia
+  public name:string = ''
+  public dataSet = 10;
+  public formGroup: FormGroup
+
   paginateConfig: PaginationInstance = {
-    id: 'users',
+    id: 'patologia',
     currentPage: 1,
-    itemsPerPage: 2
+    itemsPerPage: 5
   };
 
   constructor(
     private toastr: ToastrService,
-    private usersService: UsersService
+    private fb: FormBuilder,
+    private service: PathologyService
   ) { }
 
   ngOnInit(): void {
     this.start() 
+    this.findPathology();
   }
 
   async start(){
     try{
-      await this.getUsers()    
+      this.startForm()
     }catch{
-      this.toastr.error('Não foi possível carregar os produtos')
+      this.toastr.error('Não foi possível carregar')
     }
   }
 
-  getUsers(page?:number): Promise<any>{
+  startForm(): FormGroup{
+    return this.formGroup = this.fb.group({
+      nome: ['']
+    })
+  }
+
+  get(page?:any): Promise<any>{
     return new Promise((resolve, reject)=>{
       if(!page) page = 1
-    
+      this.service.findPatologia(page, this.name).subscribe(response =>{
+        this.patologia = response
+        this.paginateConfig.totalItems = response.count
+        this.paginateConfig.currentPage = page
+        resolve(response)
+      }, error=>{
+        reject(error)
+      })
     })
+  }
+
+  deleteNew(idNumber:Number){
+    this.service.deletePatologia(idNumber).subscribe(response =>{
+      this.toastr.success('Notícia Excluída', 'Sucesso!')
+      this.start()
+    }, error=>{
+      this.toastr.error('Tente novamente mais tarde')
+    })
+  }
+  
+  findPathology() {
+    this.service.findPatologia('patologia').subscribe(res => {
+      this.patologia = res
+    });
+  }
+
+  searchPathology() {
+    this.service.findPatologia('patologia',this.formGroup.value).subscribe(res => {
+      this.patologia = res
+    });
   }
 
 }
