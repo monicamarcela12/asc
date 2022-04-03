@@ -48,6 +48,7 @@ export class PathologyFormComponent implements OnInit {
 
   public findById(id: number) {
       if(id) {
+        this.spinner.show()
           this.service.findById(id).subscribe(
               res => this.processSearchByIdResponse(res),
               err => this.processErrorResponse(err)
@@ -56,17 +57,15 @@ export class PathologyFormComponent implements OnInit {
   }
 
   private processSearchByIdResponse(value) {
+    this.spinner.hide()
     this.updateFormControl(value);
-    this.processResponseData(value);
   }
 
   private processErrorResponse(error) {
+    this.spinner.hide()
     this.toastr.error('Não foi possível encontrar o registro.Tente novamente');
   }
 
-  private processResponseData(error) {
-    this.toastr.success('Salvo com sucesso!');
-  }
 
   private updateFormControl(value) {
     console.log(value)
@@ -91,6 +90,7 @@ export class PathologyFormComponent implements OnInit {
         this.service.postPatologia(this.formGroup.value).subscribe(response =>{
           this.spinner.hide()
           this.toastr.success('Sucesso', 'Sucesso!')
+          this.formGroup.reset();
           this.start()
         }, error=>{
           this.spinner.hide()

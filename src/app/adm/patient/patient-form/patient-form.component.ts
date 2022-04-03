@@ -48,6 +48,7 @@ export class PatientFormComponent implements OnInit {
 
   public findById(id: number) {
       if(id) {
+        this.spinner.show();
           this.service.findById(id).subscribe(
               res => this.processSearchByIdResponse(res),
               err => this.processErrorResponse(err)
@@ -56,20 +57,17 @@ export class PatientFormComponent implements OnInit {
   }
 
   private processSearchByIdResponse(value) {
+    this.spinner.hide()
     this.updateFormControl(value);
-    this.processResponseData(value);
   }
 
   private processErrorResponse(error) {
+    this.spinner.hide()
     this.toastr.error('Não foi possível encontrar o registro.Tente novamente');
   }
 
-  private processResponseData(error) {
-    this.toastr.success('Salvo com sucesso!');
-  }
-
   private updateFormControl(value) {
-    this.formGroup.setValue(value);
+    this.formGroup.patchValue(value);
   }
 
   startForm(): FormGroup{
@@ -82,17 +80,17 @@ export class PatientFormComponent implements OnInit {
       endereco: ['', Validators.required],
       numeroCasa: ['', Validators.required],
       bairro: ['', Validators.required],
-      temPatologia: ['', Validators.required],
-      necessitaVisitaMedica: ['', Validators.required],
-      tomaRemedioControlado: ['', Validators.required],
-      temDependente: ['', Validators.required],
-      bebe: ['', Validators.required],
-      remedio: ['', Validators.required],
-      fuma: ['', Validators.required],
-      idoso: ['', Validators.required],
-      cancer: ['', Validators.required],
-      filhos: ['', Validators.required],
-      rg: ['', Validators.required]
+      temPatologia: [''],
+      necessitaVisitaMedica: [''],
+      tomaRemedioControlado: [''],
+      temDependente: [''],
+      bebe: [''],
+      remedio: [''],
+      fuma: [''],
+      idoso: [''],
+      cancer: [''],
+      filhos: [''],
+      rg: ['']
     })
   }
 
@@ -112,6 +110,7 @@ export class PatientFormComponent implements OnInit {
           this.spinner.hide()
           if(error.status == 200 )  {    
             this.toastr.success("Cadastro realizado com sucesso....");
+            this.formGroup.reset();
           }else this.toastr.error("Erro... Tente novamente");
         })
       }else {

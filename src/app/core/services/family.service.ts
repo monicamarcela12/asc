@@ -16,11 +16,19 @@ export class FamilyService extends BaseService {
     return this.http.get(`${API}/familia/${id}`);
   }
 
+  public postFamilia(data,id): Observable<any>{
+    return this.http.post(`${API}/membro-familia/${id}`, data)
+  }
+
   public findFamilia(url:string, filter?: any): Observable<any> {
     return this.http.get(`${API}/familia`, { params: filter });
   }
 
   public findASC(): Observable<any> {
     return this.http.get(`${API}/usuario`);
+  }
+
+  public deleteMembroFamilia(id): Observable<any>{
+    return this.http.delete(`${API}/membro-familia/${id}`)
   }
 }

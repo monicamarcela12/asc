@@ -14,19 +14,14 @@
           <div class="card-body">
             <div class="col-12">
               <div class="row row-area">
-                <div class="col-12 form-group">
-                  <label>ASC</label>
-                  <div class="input-group">
-                    <input type="text"  class="form-control"  style="border-right: 1px solid transparent !important;" 
-                    [ngClass]="{'is-invalid': checkInvalidField('nome')}" id="asc" formControlName="asc">
-                  </div>
-                </div>
-              </div>
-              <div class="row row-area">
                 <div class="col-6 form-group">
-                  <label>Nome da Pessoa</label>
+                  <label>Nome do ASC</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" [ngClass]="{'is-invalid': checkInvalidField('nome')}" id="nome" formControlName="nome">
+                    <select class="select-input form-control"
+                    [ngClass]="{'is-invalid': checkInvalidField('nome')}" id="nome" formControlName="nome">
+                      <option value="" selected>Ver todos</option>
+                      <option *ngFor="let item of asc" [value]="item.nome" > {{ item.nome }} </option>
+                    </select>                  
                   </div>
                 </div>
                 <div class="col-3 form-group">
@@ -47,7 +42,6 @@
               <div class="row row-area">
                 <div class="col-8 form-group">
                   <label>Endereço</label>
-
                   <div class="input-group">
                     <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" 
                     [ngClass]="{'is-invalid': checkInvalidField('endereco')}" id="endereco" formControlName="endereco">

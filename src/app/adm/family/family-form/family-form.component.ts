@@ -13,6 +13,7 @@ import { FamilyService } from 'src/app/core/services/family.service';
 export class FamilyFormComponent implements OnInit {
   public id: Number;
   public formGroup: FormGroup
+  public membroFamilia: any = [{}]
 
   constructor(
     private toastr: ToastrService,
@@ -45,6 +46,7 @@ export class FamilyFormComponent implements OnInit {
 
   public findById(id: number) {
       if(id) {
+        this.spinner.show();
           this.service.findById(id).subscribe(
               res => this.processSearchByIdResponse(res),
               err => this.processErrorResponse(err)
@@ -54,19 +56,18 @@ export class FamilyFormComponent implements OnInit {
 
   private processSearchByIdResponse(value) {
     this.updateFormControl(value);
-    this.processResponseData(value);
+    this.spinner.hide();
   }
 
   private processErrorResponse(error) {
+    this.spinner.hide();
     this.toastr.error('Não foi possível encontrar o registro.Tente novamente');
   }
 
-  private processResponseData(error) {
-    this.toastr.success('Salvo com sucesso!');
-  }
 
   private updateFormControl(value) {
     this.formGroup.setValue(value);
+    this.membroFamilia = this.formGroup.value.membroFamilia
   }
 
   startForm(): FormGroup{
@@ -77,7 +78,8 @@ export class FamilyFormComponent implements OnInit {
       cpf: ['', Validators.required],
       endereco: ['', Validators.required],
       numero: ['', Validators.required],
-      bairro: ['', Validators.required]
+      bairro: ['', Validators.required],
+      membroFamilia: [this.membroFamilia]
     })
   }
 
@@ -86,6 +88,7 @@ export class FamilyFormComponent implements OnInit {
   }
 
   submit(){
+    this.formGroup.value.membroFamilia = this.membroFamilia
     if(this.formGroup.valid){
       if(!this.id) {
         this.spinner.show()
@@ -100,6 +103,7 @@ export class FamilyFormComponent implements OnInit {
           }else this.toastr.error("Erro... Tente novamente");
         })
       }else {
+        this.salvarAutomatico();
         this.spinner.show()
         this.service.put( this.id, this.formGroup.value).subscribe(response =>{
           this.spinner.hide()
@@ -107,7 +111,7 @@ export class FamilyFormComponent implements OnInit {
           this.start()
         }, error=>{
           this.spinner.hide()
-          if(error.status == 200 )  {    
+           if(error.status == 200 )  {    
             this.toastr.success("Cadastro realizado com sucesso....");
           }else this.toastr.error("Erro... Tente novamente");
         })
@@ -116,6 +120,35 @@ export class FamilyFormComponent implements OnInit {
       this.formGroup.markAllAsTouched()
       this.toastr.error('Preencha os campos inválidos')
     }
+  }
+
+  adiocionarVazio() {
+    this.membroFamilia.push({
+      nome: null, 
+      dataNascimento: null,
+      sus: null
+    })
+  }
+
+  public salvarAutomatico() {
+    for(let i = 0;i < this.membroFamilia.length;i++ ) {
+      this.service.postFamilia(this.membroFamilia[i], this.id).subscribe(err =>{
+        console.log("Salvo")
+      })
+    }
+  }
+
+  adiocionar(event, index, item) {
+    if (item == 1) this.membroFamilia[index].nome = event.target.value;
+    if (item == 2) this.membroFamilia[index].dataNascimento =  event.target.value;
+    if (item == 3) this.membroFamilia[index].sus =  event.target.value;
+  }
+
+  close(model: any) {
+    this.membroFamilia.splice(this.membroFamilia.indexOf(model), 1);
+    this.service.deleteMembroFamilia(model.id).subscribe(err =>{
+      console.log("Salvo")
+    })
   }
 
 }

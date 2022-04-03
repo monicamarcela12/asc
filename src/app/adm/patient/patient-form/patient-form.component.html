@@ -17,7 +17,7 @@
                 <div class="col-12 form-group">
                   <label>Nome</label>
                   <div class="input-group">
-                    <input type="text"  id="nome" formControlName="nome" class="form-control" placeholder="Nome" style="border-right: 1px solid transparent !important;" 
+                    <input type="text"  id="nome" formControlName="nome" class="form-control"  style="border-right: 1px solid transparent !important;" 
                       [ngClass]="{'is-invalid': checkInvalidField('nome')}">
                   </div>
                 </div>
@@ -109,7 +109,6 @@
                 <div class="col-3 form-group">
                   <label>Fuma?</label>
                   <select class="form-control field-height" id="fuma" formControlName="fuma" [ngClass]="{'is-invalid': checkInvalidField('fuma')}">
-
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -117,7 +116,6 @@
                 <div class="col-3 form-group">
                   <label>Bebida?</label>
                   <select class="form-control field-height" id="bebe" formControlName="bebe" [ngClass]="{'is-invalid': checkInvalidField('bebe')}">
-
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -125,7 +123,6 @@
                 <div class="col-6 form-group">
                   <label>Idoso?</label>
                   <select class="form-control field-height" id="idoso" formControlName="idoso" [ngClass]="{'is-invalid': checkInvalidField('idoso')}">
-                    <option selected>Escolhe</option>
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -149,9 +146,12 @@
                   </select>                
                 </div>
                 <div class="col-3 form-group">
-                  <label>Número</label>
+                  <label>Sexo</label>
                   <div class="input-group">
-                    <input type="number"  class="form-control"  style="border-right: 1px solid transparent !important;" id="rg" formControlName="rg" [ngClass]="{'is-invalid': checkInvalidField('rg')}">
+                    <select class="form-control field-height" id="rg" formControlName="rg" [ngClass]="{'is-invalid': checkInvalidField('rg')}">
+                      <option value="Feminino">Feminino</option>
+                      <option value="Masculino">Masculino</option>
+                    </select>                   
                   </div>          
                 </div>
                 <div class="justify-content-end col-12" style="display: flex;">

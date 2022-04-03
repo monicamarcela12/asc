@@ -72,10 +72,13 @@ export class PathologyListComponent implements OnInit {
 
   deleteNew(idNumber:Number){
     this.service.delete(idNumber).subscribe(response =>{
-      this.toastr.success('Notícia Excluída', 'Sucesso!')
-      this.start()
+      this.toastr.success('Deletado com sucesso....', 'Sucesso!')
+      this.findPathology()
     }, error=>{
-      this.toastr.error('Tente novamente mais tarde')
+      if(error.status == 200 )  {    
+        this.toastr.success("Deletado com sucesso....");
+          this.findPathology()
+      }else this.toastr.error("Erro... Tente novamente");
     })
   }
   

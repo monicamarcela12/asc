@@ -52,7 +52,6 @@ export class RegistrationComponent implements OnInit {
     }
 
     private processResponse(res: any) {
-    console.log(res)
       if(res.status == 200 )  {    
         this.toastr.success("Cadastro realizado com sucesso....");
         this.router.navigate(["../"])

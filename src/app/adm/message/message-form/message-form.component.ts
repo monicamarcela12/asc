@@ -14,6 +14,7 @@ export class MessageFormComponent implements OnInit {
  
   public id: Number;
   public formGroup: FormGroup
+  public asc
 
   constructor(
     private toastr: ToastrService,
@@ -37,6 +38,7 @@ export class MessageFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.start()
+    this.findASC();
   }
 
   public configRouteParams(params) {
@@ -46,6 +48,8 @@ export class MessageFormComponent implements OnInit {
 
   public findById(id: number) {
       if(id) {
+        this.spinner.show();
+
           this.service.findById(id).subscribe(
               res => this.processSearchByIdResponse(res),
               err => this.processErrorResponse(err)
@@ -54,16 +58,13 @@ export class MessageFormComponent implements OnInit {
   }
 
   private processSearchByIdResponse(value) {
+    this.spinner.hide();
     this.updateFormControl(value);
-    this.processResponseData(value);
   }
 
   private processErrorResponse(error) {
+    this.spinner.hide();
     this.toastr.error('Não foi possível encontrar o registro.Tente novamente');
-  }
-
-  private processResponseData(error) {
-    this.toastr.success('Salvo com sucesso!');
   }
 
   private updateFormControl(value) {
@@ -95,6 +96,7 @@ export class MessageFormComponent implements OnInit {
           this.spinner.hide()
           this.toastr.success('Sucesso', 'Sucesso!')
           this.start()
+          this.formGroup.reset();
         }, error=>{
           this.spinner.hide()
           if(error.status == 200 )  {    
@@ -118,6 +120,12 @@ export class MessageFormComponent implements OnInit {
       this.formGroup.markAllAsTouched()
       this.toastr.error('Preencha os campos inválidos')
     }
+  }
+
+  findASC() {
+    this.service.findASC().subscribe(res => {
+      this.asc = res
+    });
   }
 
 }
