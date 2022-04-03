@@ -68,7 +68,6 @@ export class PathologyFormComponent implements OnInit {
 
 
   private updateFormControl(value) {
-    console.log(value)
     this.formGroup.setValue(value);
   }
 

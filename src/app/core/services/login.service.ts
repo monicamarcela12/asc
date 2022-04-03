@@ -42,13 +42,14 @@ export class LoginService {
 
   logout() {
     this.localstorageService.removeLocalStorage("user_asc_web")
+    this.localstorageService.removeLocalStorage("user_asc")
+
     delete this._user;
     this.router.navigate(['/'])
   }
 
   private initUser(response) {
     this._user = response;
-    console.log(response)
     this.localstorageService.setLocalStorage("user_asc_web", this._user)
   }
 

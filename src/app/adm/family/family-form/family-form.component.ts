@@ -14,6 +14,7 @@ export class FamilyFormComponent implements OnInit {
   public id: Number;
   public formGroup: FormGroup
   public membroFamilia: any = [{}]
+  public nomeResponsavel
 
   constructor(
     private toastr: ToastrService,
@@ -37,6 +38,13 @@ export class FamilyFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.start()
+    this.findNomeResponsavel();
+  }
+
+  findNomeResponsavel() {
+    this.service.findNomeResponsavel().subscribe(res => {
+      this.nomeResponsavel = res
+    });
   }
 
   public configRouteParams(params) {

@@ -16,6 +16,10 @@ export class FamilyService extends BaseService {
     return this.http.get(`${API}/familia/${id}`);
   }
 
+  public findNomeResponsavel(): Observable<any> {
+    return this.http.get(`${API}/paciente`);
+  }
+
   public postFamilia(data,id): Observable<any>{
     return this.http.post(`${API}/membro-familia/${id}`, data)
   }

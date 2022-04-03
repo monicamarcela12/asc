@@ -31,7 +31,6 @@ export class RegistrationComponent implements OnInit {
     this.configFormGroup();
   }
   ngOnInit(): void {
-    console.log(this.loginForm)
   }
 
   submit() {

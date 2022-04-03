@@ -57,7 +57,6 @@ private processResponse(value) {
   this.spinner.hide()
   this.graficoSexo(value);
   this.graficoPatologia(value);
-  console.log(value)
 
 }
 

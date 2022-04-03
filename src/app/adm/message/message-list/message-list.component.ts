@@ -2,6 +2,8 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {PaginationInstance} from "ngx-pagination";
 import { ToastrService } from 'ngx-toastr';
+import { StorageService } from 'src/app/core/services/localsorage.service';
+import { LoginService } from 'src/app/core/services/login.service';
 import { MessageService } from 'src/app/core/services/message.service';
 
 declare var $:any;
@@ -15,6 +17,7 @@ export class MessageListComponent implements OnInit {
   
   public idExcluir;
   public message
+  public user
   public asc
   public name:string = ''
   public dataSet = 10;
@@ -29,13 +32,16 @@ export class MessageListComponent implements OnInit {
   constructor(
     private toastr: ToastrService,
     private fb: FormBuilder,
-    private service: MessageService
+    private service: MessageService,
+    private localstorageService: StorageService,
+    public users: LoginService
   ) { }
 
   ngOnInit(): void {
     this.start() 
     this.findMessage();
     this.findAsc();
+    this.findUser();
   }
 
   async start(){
@@ -69,16 +75,24 @@ export class MessageListComponent implements OnInit {
   findAsc() {
     this.service.findASC().subscribe(res => {
       this.asc = res
+      this.userAute()
+    });
+  }
+
+  findUser() {
+    this.service.findUser().subscribe(res => {
+      this.user = res
     });
   }
 
   deleteNew(idNumber:Number){
     this.service.delete(idNumber).subscribe(response =>{
       this.toastr.success('Deletado com sucesso....', 'Sucesso!')
-      this.start()
+      this.findMessage()
     }, error=>{
       if(error.status == 200 )  {    
         this.toastr.success("Deletado com sucesso....");
+          this.findMessage()
       }else this.toastr.error("Erro... Tente novamente");
     })
   }
@@ -93,6 +107,10 @@ export class MessageListComponent implements OnInit {
     this.service.findMessage('patologia',this.formGroup.value).subscribe(res => {
       this.message = res
     });
+  }
+
+  userAute() {
+    return this.localstorageService.getLocalStorage("user_asc").email == "admTeste@email.com"
   }
 
 }

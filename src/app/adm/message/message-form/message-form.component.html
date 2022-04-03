@@ -19,8 +19,7 @@
                   <div class="input-group">
                     <select class="select-input form-control"
                     [ngClass]="{'is-invalid': checkInvalidField('nome')}" id="nome" formControlName="nome">
-                      <option value="" selected>Ver todos</option>
-                      <option *ngFor="let item of asc" [value]="item.nome" > {{ item.nome }} </option>
+                      <option *ngFor="let item of asc" [value]="item.nome"> {{ item.nome }} </option>
                     </select>                  
                   </div>
                 </div>

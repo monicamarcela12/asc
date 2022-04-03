@@ -23,4 +23,8 @@ export class MessageService extends BaseService {
   public findASC(): Observable<any> {
     return this.http.get(`${API}/usuario`);
   }
+
+  public findUser(): Observable<any> {
+    return this.http.get(`${API}/usuario`);
+  }
 }

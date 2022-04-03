@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { StorageService } from 'src/app/core/services/localsorage.service';
 import { MessageService } from 'src/app/core/services/message.service';
 
 @Component({
@@ -15,10 +16,12 @@ export class MessageFormComponent implements OnInit {
   public id: Number;
   public formGroup: FormGroup
   public asc
+  public user
 
   constructor(
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
+    private localstorageService: StorageService,
     private fb: FormBuilder,
     public route: ActivatedRoute,
     private service: MessageService
@@ -68,7 +71,7 @@ export class MessageFormComponent implements OnInit {
   }
 
   private updateFormControl(value) {
-    this.formGroup.setValue(value);
+    this.formGroup.patchValue(value);
   }
 
   startForm(): FormGroup{
