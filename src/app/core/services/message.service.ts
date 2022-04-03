@@ -9,15 +9,15 @@ import { BaseService } from './base-service.service';
 export class MessageService extends BaseService {
 
   urlService(){
-    return 'messagem'
+    return 'recado'
   }
 
   public findById(id: any): Observable<any> {
-    return this.http.get(`${API}/messagem/${id}`);
+    return this.http.get(`${API}/recado/${id}`);
   }
 
   public findMessage(url:string, filter?: any): Observable<any> {
-    return this.http.get(`${API}/messagem`, { params: filter });
+    return this.http.get(`${API}/recado`, { params: filter });
   }
 
   public findASC(): Observable<any> {

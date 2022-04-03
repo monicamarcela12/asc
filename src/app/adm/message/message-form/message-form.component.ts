@@ -97,7 +97,9 @@ export class MessageFormComponent implements OnInit {
           this.start()
         }, error=>{
           this.spinner.hide()
-          this.toastr.error('Tente novamente mais tarde')
+          if(error.status == 200 )  {    
+            this.toastr.success("Cadastro realizado com sucesso....");
+          }else this.toastr.error("Erro... Tente novamente");
         })
       }else {
         this.spinner.show()
@@ -107,7 +109,9 @@ export class MessageFormComponent implements OnInit {
           this.start()
         }, error=>{
           this.spinner.hide()
-          this.toastr.error('Tente novamente mais tarde')
+          if(error.status == 200 )  {    
+            this.toastr.success("Cadastro realizado com sucesso....");
+          }else this.toastr.error("Erro... Tente novamente");
         })
       }
     }else{

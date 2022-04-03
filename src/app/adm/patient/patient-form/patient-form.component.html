@@ -64,7 +64,7 @@
                 <div class="col-6 form-group">
                   <label>Bairro</label>
                   <div class="input-group">
-                    <input type="date"  class="form-control" style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
+                    <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
                     [ngClass]="{'is-invalid': checkInvalidField('bairro')}">
                   </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="col-6 form-group">
                   <label>Tem alguma patologia?</label>
                   <select class="form-control field-height" id="temPatologia" formControlName="temPatologia" [ngClass]="{'is-invalid': checkInvalidField('temPatologia')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -81,7 +81,7 @@
                 <div class="col-6 form-group">
                   <label>Necessidade Visita do medico?</label>
                   <select class="form-control field-height" id="necessitaVisitaMedica" formControlName="necessitaVisitaMedica" [ngClass]="{'is-invalid': checkInvalidField('necessitaVisitaMedica')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -91,7 +91,7 @@
                 <div class="col-6 form-group">
                   <label>Toma algum remedio controlado?</label>
                   <select class="form-control field-height" id="tomaRemedioControlado" formControlName="tomaRemedioControlado" [ngClass]="{'is-invalid': checkInvalidField('tomaRemedioControlado')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -99,7 +99,6 @@
                 <div class="col-6 form-group">
                   <label>Tem algum depende?</label>
                   <select class="form-control field-height" id="temDependente" formControlName="temDependente" [ngClass]="{'is-invalid': checkInvalidField('temDependente')}">
-                    <option selected> Escolher</option>
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -110,7 +109,7 @@
                 <div class="col-3 form-group">
                   <label>Fuma?</label>
                   <select class="form-control field-height" id="fuma" formControlName="fuma" [ngClass]="{'is-invalid': checkInvalidField('fuma')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -118,7 +117,7 @@
                 <div class="col-3 form-group">
                   <label>Bebida?</label>
                   <select class="form-control field-height" id="bebe" formControlName="bebe" [ngClass]="{'is-invalid': checkInvalidField('bebe')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -136,7 +135,7 @@
                 <div class="col-6 form-group">
                   <label>Cancer?</label>
                   <select class="form-control field-height" id="cancer" formControlName="cancer" [ngClass]="{'is-invalid': checkInvalidField('cancer')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
@@ -144,7 +143,7 @@
                 <div class="col-3 form-group">
                   <label>Filhos?</label>
                   <select class="form-control field-height" id="filhos" formControlName="filhos" [ngClass]="{'is-invalid': checkInvalidField('filhos')}">
-                    <option selected>Escolher</option>
+
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                   </select>                
