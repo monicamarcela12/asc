@@ -9,6 +9,7 @@ import { StarRatingModule } from 'angular-rating-star';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     NgxSpinnerModule,
     StarRatingModule,
     BarRatingModule,
+    NgChartsModule,
     BrowserAnimationsModule,
     MatCheckboxModule
   ],

@@ -11,6 +11,7 @@ import { PathologyService } from 'src/app/core/services/pathology.service';
 })
 export class PathologyListComponent implements OnInit {
 
+  public idExcluir = 0
   public patologia
   public name:string = ''
   public dataSet = 10;
@@ -47,6 +48,14 @@ export class PathologyListComponent implements OnInit {
     })
   }
 
+  imprimir() {
+    var divToPrint = document.getElementById('areaToPrint');
+        const newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+  }
+
   get(page?:any): Promise<any>{
     return new Promise((resolve, reject)=>{
       if(!page) page = 1
@@ -62,12 +71,7 @@ export class PathologyListComponent implements OnInit {
   }
 
   deleteNew(idNumber:Number){
-    this.service.deletePatologia(idNumber).subscribe(response =>{
-      this.toastr.success('Notícia Excluída', 'Sucesso!')
-      this.start()
-    }, error=>{
-      this.toastr.error('Tente novamente mais tarde')
-    })
+  console.log(idNumber)
   }
   
   findPathology() {

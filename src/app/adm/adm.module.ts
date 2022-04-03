@@ -22,6 +22,8 @@ import { PathologyListComponent } from './pathology/pathology-list/pathology-lis
 import { FormsModule } from '@angular/forms';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const editorConfig= {
   modules: {
@@ -70,6 +72,7 @@ const editorConfig= {
     FamilyFormComponent,
     FamilyListComponent,
     PathologyFormComponent,
+    DashboardComponent,
     PathologyListComponent
   ],
   imports: [
@@ -80,6 +83,7 @@ const editorConfig= {
     BarRatingModule,
     SharedModule,
     NgxPaginationModule,
+    NgChartsModule,
     NgxCurrencyModule,
     MatCheckboxModule,
     QuillModule.forRoot(editorConfig),

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdmContainerComponent } from './adm-container.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { FamilyFormComponent } from './family/family-form/family-form.component';
 import { FamilyListComponent } from './family/family-list/family-list.component';
 import { MessageFormComponent } from './message/message-form/message-form.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
     path: '',
     component: AdmContainerComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'patient-list' },
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'patient-form', component: PatientFormComponent },
       { path: 'patient-form/:id', component: PatientFormComponent },
       { path: 'patient-list', component: PatientListComponent },

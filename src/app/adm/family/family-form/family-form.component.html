@@ -15,23 +15,23 @@
             <div class="col-12" [formGroup]="formGroup">
               <div class="row row-area">
                 <div class="col-8 form-group">
+                  <label>Endreço</label>
                   <div class="input-group">
-                    <label>Endreço</label>
                     <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" id="endereco" formControlName="endereco"
                     [ngClass]="{'is-invalid': checkInvalidField('endereco')}">
                   </div>
                 </div>
                 <div class="col-1 form-group">
+                  <label>Número</label>
                   <div class="input-group">
-                    <label>Número</label>
-                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" id="numero" formControlName="numero"
+                    <input type="number"  class="form-control" style="border-right: 1px solid transparent !important;" id="numero" formControlName="numero"
                     [ngClass]="{'is-invalid': checkInvalidField('numero')}">
                   </div>
                 </div>
                 <div class="col-3 form-group">
                   <label>Bairro</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Bairro" style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
+                    <input type="text"  class="form-control"  style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
                     [ngClass]="{'is-invalid': checkInvalidField('bairro')}">
                   </div>
                 </div>
@@ -40,21 +40,21 @@
                 <div class="col-4 form-group">
                   <label>SUS</label>
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="SUS" style="border-right: 1px solid transparent !important;" id="sus" formControlName="sus"
+                    <input type="number"  class="form-control" style="border-right: 1px solid transparent !important;" id="sus" formControlName="sus"
                     [ngClass]="{'is-invalid': checkInvalidField('sus')}">
                   </div>
                 </div>
                 <div class="col-4 form-group">
                   <label>CPF</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="CPF" mask="000.000.000-00" style="border-right: 1px solid transparent !important;" id="cpf" formControlName="cpf"
+                    <input type="text"  class="form-control"  mask="000.000.000-00" style="border-right: 1px solid transparent !important;" id="cpf" formControlName="cpf"
                     [ngClass]="{'is-invalid': checkInvalidField('cpf')}">
                   </div>
                 </div>
                 <div class="col-4 form-group">
                   <label>Nome do Responsavel</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Noome do Responsavel" style="border-right: 1px solid transparent !important;" id="nomeResponsavel" formControlName="nomeResponsavel"
+                    <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" id="nomeResponsavel" formControlName="nomeResponsavel"
                     [ngClass]="{'is-invalid': checkInvalidField('nomeResponsavel')}">
                   </div>
                 </div>
@@ -64,7 +64,7 @@
               <div class="row row-area">
                 <div class="col-12 form-group">
                   <div class="input-group">
-                    <h5 style="color: #688B6C;">Membro da Familia</h5>
+                    <h5 style="color: #688B6C;">Membro da Família</h5>
                   </div>
                 </div>
               </div>
