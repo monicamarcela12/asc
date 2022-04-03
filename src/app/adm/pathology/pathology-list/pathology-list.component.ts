@@ -11,7 +11,7 @@ import { PathologyService } from 'src/app/core/services/pathology.service';
 })
 export class PathologyListComponent implements OnInit {
 
-  public idExcluir = 0
+  public idExcluir
   public patologia
   public name:string = ''
   public dataSet = 10;
@@ -71,7 +71,12 @@ export class PathologyListComponent implements OnInit {
   }
 
   deleteNew(idNumber:Number){
-  console.log(idNumber)
+    this.service.delete(idNumber).subscribe(response =>{
+      this.toastr.success('Notícia Excluída', 'Sucesso!')
+      this.start()
+    }, error=>{
+      this.toastr.error('Tente novamente mais tarde')
+    })
   }
   
   findPathology() {

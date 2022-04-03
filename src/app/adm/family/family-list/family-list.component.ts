@@ -10,6 +10,8 @@ import { FamilyService } from 'src/app/core/services/family.service';
   styleUrls: ['./family-list.component.scss']
 })
 export class FamilyListComponent implements OnInit {
+  
+  public idExcluir;
   public family
   public asc
   public name:string = ''

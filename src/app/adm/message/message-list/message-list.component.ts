@@ -12,6 +12,8 @@ declare var $:any;
   styleUrls: ['./message-list.component.scss']
 })
 export class MessageListComponent implements OnInit {
+  
+  public idExcluir;
   public message
   public asc
   public name:string = ''
@@ -70,7 +72,7 @@ export class MessageListComponent implements OnInit {
     });
   }
 
-  delete(idNumber:Number){
+  deleteNew(idNumber:Number){
     this.service.delete(idNumber).subscribe(response =>{
       this.toastr.success('Notícia Excluída', 'Sucesso!')
       this.start()

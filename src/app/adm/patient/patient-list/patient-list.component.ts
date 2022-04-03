@@ -11,6 +11,7 @@ import { PatientService } from 'src/app/core/services/patient.service';
 })
 export class PatientListComponent implements OnInit {
   public patient
+  public idExcluir;
   public name:string = ''
   public dataSet = 10;
   public formGroup: FormGroup
