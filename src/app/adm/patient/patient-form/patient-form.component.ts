@@ -80,18 +80,19 @@ export class PatientFormComponent implements OnInit {
       cpf: ['', Validators.required],
       telefone: ['', Validators.required],
       endereco: ['', Validators.required],
-      numero: ['', Validators.required],
+      numeroCasa: ['', Validators.required],
       bairro: ['', Validators.required],
-      patologia: ['', Validators.required],
-      visita: ['', Validators.required],
-      bebida: ['', Validators.required],
+      temPatologia: ['', Validators.required],
+      necessitaVisitaMedica: ['', Validators.required],
+      tomaRemedioControlado: ['', Validators.required],
+      temDependente: ['', Validators.required],
+      bebe: ['', Validators.required],
       remedio: ['', Validators.required],
       fuma: ['', Validators.required],
-      idioso: ['', Validators.required],
+      idoso: ['', Validators.required],
       cancer: ['', Validators.required],
-      filho: ['', Validators.required],
-      numerofilho: ['', Validators.required],
-      depende: ['', Validators.required]
+      filhos: ['', Validators.required],
+      rg: ['', Validators.required]
     })
   }
 

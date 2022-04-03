@@ -75,21 +75,11 @@ export class MessageFormComponent implements OnInit {
       id: [''],
       nome: ['', Validators.required],
       sus: ['', Validators.required],
-      cpf: ['', Validators.required],
-      telefone: ['', Validators.required],
       endereco: ['', Validators.required],
+      dataNascimento: ['', Validators.required],
+      recado: ['', Validators.required],
       numero: ['', Validators.required],
-      bairro: ['', Validators.required],
-      patologia: ['', Validators.required],
-      visita: ['', Validators.required],
-      bebida: ['', Validators.required],
-      remedio: ['', Validators.required],
-      fuma: ['', Validators.required],
-      idioso: ['', Validators.required],
-      cancer: ['', Validators.required],
-      filho: ['', Validators.required],
-      numerofilho: ['', Validators.required],
-      depende: ['', Validators.required]
+      bairro: ['', Validators.required]
     })
   }
 

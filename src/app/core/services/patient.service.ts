@@ -20,4 +20,12 @@ export class PatientService extends BaseService {
     return this.http.get(`${API}/paciente`, { params: filter });
   }
 
+  public findASC(): Observable<any> {
+    return this.http.get(`${API}/usuario`);
+  }
+
+  public findPatologia(): Observable<any> {
+    return this.http.get(`${API}/patologia`);
+  }
+
 }

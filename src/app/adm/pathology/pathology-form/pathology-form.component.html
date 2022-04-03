@@ -15,8 +15,9 @@
             <div class="col-12" [formGroup]="formGroup">
               <div class="row row-area">
                 <div class="col-12 form-group">
+                  <label>Nome da Patologia</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" id="nome" formControlName="nome" placeholder="Nome da Patologia" style="border-right: 1px solid transparent !important;" 
+                    <input type="text"  class="form-control" id="nome" formControlName="nome" style="border-right: 1px solid transparent !important;" 
                     [ngClass]="{'is-invalid': checkInvalidField('nome')}">
                   </div>
                 </div>
@@ -26,6 +27,9 @@
                   <button type="submit" (click)="submit()" class="btn btn-success mr-1">
                      Salvar
                   </button>
+                  <button type="button" class="btn btn-primary" [routerLink]="[ id ? '../../pathology-list': '../pathology-list']" >
+                    Voltar
+                 </button>
                 </div>
               </div>
             </div>

@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import {PaginationInstance} from "ngx-pagination";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { FamilyService } from 'src/app/core/services/family.service';
@@ -73,23 +72,12 @@ export class FamilyFormComponent implements OnInit {
   startForm(): FormGroup{
     return this.formGroup = this.fb.group({
       id: [''],
-      nome: ['', Validators.required],
+      nomeResponsavel: ['', Validators.required],
       sus: ['', Validators.required],
       cpf: ['', Validators.required],
-      telefone: ['', Validators.required],
       endereco: ['', Validators.required],
       numero: ['', Validators.required],
-      bairro: ['', Validators.required],
-      patologia: ['', Validators.required],
-      visita: ['', Validators.required],
-      bebida: ['', Validators.required],
-      remedio: ['', Validators.required],
-      fuma: ['', Validators.required],
-      idioso: ['', Validators.required],
-      cancer: ['', Validators.required],
-      filho: ['', Validators.required],
-      numerofilho: ['', Validators.required],
-      depende: ['', Validators.required]
+      bairro: ['', Validators.required]
     })
   }
 

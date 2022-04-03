@@ -35,8 +35,9 @@ export class StorageService {
     }
     
     private decrypt(data){
+      let decryptedData
       let bytes = CryptoJS.AES.decrypt(data, SECRET_KEY);
-      let decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      if(bytes.toString(CryptoJS.enc.Utf8)) decryptedData =  JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
       return decryptedData;
     }
 }

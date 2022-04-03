@@ -4,7 +4,7 @@
       <div class="form-row">
         <div class="col-lg-12 form-group justify-space">
           <div class="input-group justify-space">
-            <h3 class="simple-text ml-2 text pl-1">Cadastro de Recado</h3>
+            <h3 class="simple-text ml-2 text pl-1">Cadastro de Família</h3>
           </div>
         </div>
       </div>
@@ -12,38 +12,50 @@
       <div class="col-12">   
         <div class="card">
           <div class="card-body">
-            <div class="col-12">
+            <div class="col-12" [formGroup]="formGroup">
               <div class="row row-area">
                 <div class="col-8 form-group">
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Endreço" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <label>Endreço</label>
+                    <input type="text"  class="form-control" style="border-right: 1px solid transparent !important;" id="endereco" formControlName="endereco"
+                    [ngClass]="{'is-invalid': checkInvalidField('endereco')}">
                   </div>
                 </div>
                 <div class="col-1 form-group">
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <label>Número</label>
+                    <input type="number"  class="form-control" placeholder="Número" style="border-right: 1px solid transparent !important;" id="numero" formControlName="numero"
+                    [ngClass]="{'is-invalid': checkInvalidField('numero')}">
                   </div>
                 </div>
                 <div class="col-3 form-group">
+                  <label>Bairro</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Bairro" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" placeholder="Bairro" style="border-right: 1px solid transparent !important;" id="bairro" formControlName="bairro"
+                    [ngClass]="{'is-invalid': checkInvalidField('bairro')}">
                   </div>
                 </div>
               </div>
               <div class="row row-area">
                 <div class="col-4 form-group">
+                  <label>SUS</label>
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="SUS" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="number"  class="form-control" placeholder="SUS" style="border-right: 1px solid transparent !important;" id="sus" formControlName="sus"
+                    [ngClass]="{'is-invalid': checkInvalidField('sus')}">
                   </div>
                 </div>
                 <div class="col-4 form-group">
+                  <label>CPF</label>
                   <div class="input-group">
-                    <input type="number"  class="form-control" placeholder="CPF" mask="CPF" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" placeholder="CPF" mask="000.000.000-00" style="border-right: 1px solid transparent !important;" id="cpf" formControlName="cpf"
+                    [ngClass]="{'is-invalid': checkInvalidField('cpf')}">
                   </div>
                 </div>
                 <div class="col-4 form-group">
+                  <label>Nome do Responsavel</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control" placeholder="Noome do Responsavel" style="border-right: 1px solid transparent !important;" aria-label="Amount (to the nearest dollar)">
+                    <input type="text"  class="form-control" placeholder="Noome do Responsavel" style="border-right: 1px solid transparent !important;" id="nomeResponsavel" formControlName="nomeResponsavel"
+                    [ngClass]="{'is-invalid': checkInvalidField('nomeResponsavel')}">
                   </div>
                 </div>
               </div>
@@ -91,10 +103,10 @@
                   </div>
               <div class="justify-content-end col-12 p-0" style="display: flex;">
                 <div>
-                  <button type="button" class="btn btn-success mr-1">
+                  <button type="button" class="btn btn-success mr-1" (click)="submit()">
                      Salvar
                   </button>
-                  <button type="button" class="btn btn-primary" routerLink="../message-list" >
+                  <button type="button" class="btn btn-primary" [routerLink]="[ id ? '../../message-list': '../message-list']" >
                     Voltar
                  </button>
                 </div>

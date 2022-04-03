@@ -11,6 +11,7 @@ import { FamilyService } from 'src/app/core/services/family.service';
 })
 export class FamilyListComponent implements OnInit {
   public family
+  public asc
   public name:string = ''
   public dataSet = 10;
   public formGroup: FormGroup
@@ -30,6 +31,7 @@ export class FamilyListComponent implements OnInit {
   ngOnInit(): void {
     this.start() 
     this.findFamilia();
+    this.findAsc();
   }
 
   async start(){
@@ -44,6 +46,12 @@ export class FamilyListComponent implements OnInit {
     return this.formGroup = this.fb.group({
       nome: ['']
     })
+  }
+
+  findAsc() {
+    this.service.findASC().subscribe(res => {
+      this.asc = res
+    });
   }
 
   get(page?:any): Promise<any>{

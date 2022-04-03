@@ -37,7 +37,7 @@ export class LoginService {
   }
 
   registro(data): Observable<any>{
-    return this.http.get(`${API}/usuario`)
+    return this.http.post(`${API}/usuario/cadastrar`,data)
   }
 
   logout() {

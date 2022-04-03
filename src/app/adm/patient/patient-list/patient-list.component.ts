@@ -14,6 +14,8 @@ export class PatientListComponent implements OnInit {
   public name:string = ''
   public dataSet = 10;
   public formGroup: FormGroup
+  public patologia
+  public asc
 
   paginateConfig: PaginationInstance = {
     id: 'patient',
@@ -30,6 +32,7 @@ export class PatientListComponent implements OnInit {
   ngOnInit(): void {
     this.start() 
     this.findPathology();
+    this.findPatologia();
   }
 
   async start(){
@@ -44,6 +47,18 @@ export class PatientListComponent implements OnInit {
     return this.formGroup = this.fb.group({
       nome: ['']
     })
+  }
+
+  findAsc() {
+    this.service.findASC().subscribe(res => {
+      this.asc = res
+    });
+  }
+
+  findPatologia() {
+    this.service.findPatologia().subscribe(res => {
+      this.asc = res
+    });
   }
 
   get(page?:any): Promise<any>{

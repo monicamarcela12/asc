@@ -19,4 +19,8 @@ export class FamilyService extends BaseService {
   public findFamilia(url:string, filter?: any): Observable<any> {
     return this.http.get(`${API}/familia`, { params: filter });
   }
+
+  public findASC(): Observable<any> {
+    return this.http.get(`${API}/usuario`);
+  }
 }

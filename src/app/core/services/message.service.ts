@@ -19,4 +19,8 @@ export class MessageService extends BaseService {
   public findMessage(url:string, filter?: any): Observable<any> {
     return this.http.get(`${API}/messagem`, { params: filter });
   }
+
+  public findASC(): Observable<any> {
+    return this.http.get(`${API}/usuario`);
+  }
 }

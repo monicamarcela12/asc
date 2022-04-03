@@ -13,6 +13,7 @@ declare var $:any;
 })
 export class MessageListComponent implements OnInit {
   public message
+  public asc
   public name:string = ''
   public dataSet = 10;
   public formGroup: FormGroup
@@ -32,6 +33,7 @@ export class MessageListComponent implements OnInit {
   ngOnInit(): void {
     this.start() 
     this.findMessage();
+    this.findAsc();
   }
 
   async start(){
@@ -60,6 +62,12 @@ export class MessageListComponent implements OnInit {
         reject(error)
       })
     })
+  }
+
+  findAsc() {
+    this.service.findASC().subscribe(res => {
+      this.asc = res
+    });
   }
 
   delete(idNumber:Number){
