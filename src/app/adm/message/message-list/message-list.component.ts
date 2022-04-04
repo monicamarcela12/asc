@@ -42,6 +42,7 @@ export class MessageListComponent implements OnInit {
     this.findMessage();
     this.findAsc();
     this.findUser();
+    this.userAute()
   }
 
   async start(){
