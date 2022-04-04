@@ -75,7 +75,6 @@ export class MessageListComponent implements OnInit {
   findAsc() {
     this.service.findASC().subscribe(res => {
       this.asc = res
-      this.userAute()
     });
   }
 
@@ -110,7 +109,7 @@ export class MessageListComponent implements OnInit {
   }
 
   userAute() {
-    return this.localstorageService.getLocalStorage("user_asc").email == "admTeste@email.com"
+    return this.localstorageService.getLocalStorage("user_asc").email == "adm@email.com"
   }
 
 }
